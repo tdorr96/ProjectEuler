@@ -27,14 +27,14 @@ def factors(n):
     # Only need to test for factors up to square root of n
     limit = int(n ** 0.5) + 1
 
-    factors = []
+    all_factors = []
     for i in range(1, limit):
         if n % i == 0:
-            factors.append(i)
+            all_factors.append(i)
             if int(n/i) != i:
-                factors.append(int(n/i))
+                all_factors.append(int(n/i))
 
-    return factors
+    return all_factors
 
 
 if __name__ == '__main__':
