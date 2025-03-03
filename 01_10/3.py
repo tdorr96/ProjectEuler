@@ -8,13 +8,12 @@ def is_prime(n):
     if n % 2 == 0:
         return False
 
-    # Only need to test for factors up to square root of n
-    limit = int(n ** 0.5) + 1
-
-    for i in range(2, limit):
-        if n % i == 0:
+    # Only need to test for factors up to square root of n. This approach avoids floating-point square root
+    k = 3
+    while k * k <= n:
+        if n % k == 0:
             return False
-
+        k += 2  # Increment by 2. We've already checked to see if it's divisible by even numbers
     return True
 
 

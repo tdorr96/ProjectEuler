@@ -1,21 +1,4 @@
-def is_prime(n):
-
-    # Quick checks
-    if n < 2:
-        return False
-    if n == 2:
-        return True
-    if n % 2 == 0:
-        return False
-
-    # Only need to test for factors up to square root of n
-    limit = int(n ** 0.5) + 1
-
-    for i in range(2, limit):
-        if n % i == 0:
-            return False
-
-    return True
+is_prime = __import__('3').is_prime
 
 
 def prime_generator(limit):
