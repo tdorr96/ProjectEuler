@@ -8,17 +8,14 @@ def is_prime(n):
     if n % 2 == 0:
         return False
 
-    divisible = False
-
     # Only need to test for factors up to square root of n
     limit = int(n ** 0.5) + 1
 
     for i in range(2, limit):
         if n % i == 0:
-            divisible = True
-            break
+            return False
 
-    return not divisible
+    return True
 
 
 def factors(n):
