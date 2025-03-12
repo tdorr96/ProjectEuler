@@ -1,16 +1,24 @@
-import time
+import math
+
+
+def is_pentagonal(n):
+
+    p = (1 + math.sqrt(24*n + 1)) / 6
+    return p.is_integer()
+
+
+def pentagonal(n):
+
+    return int(n * (3*n - 1) / 2)
 
 
 if __name__ == '__main__':
 
-    start_time = time.time()
-    # Use a dictionary as has O(1) lookup, much faster than storing in a list
-    pentagonal_numbers = {int(n * (3*n -1) / 2): True for n in range(1, 10000)}
+    limit = 5000
+    for j in range(1, limit):
+        p_j = pentagonal(j)
+        for k in range(j+1, limit):
+            p_k = pentagonal(k)
+            if is_pentagonal(p_j + p_k) and is_pentagonal(p_k - p_j):
+                print(p_j, p_k, p_k - p_j)
 
-    for p_j in pentagonal_numbers:
-        for p_k in pentagonal_numbers:
-            if (p_j + p_k) in pentagonal_numbers and (p_j - p_k) in pentagonal_numbers:
-                print(p_j, p_k, p_j - p_k)
-    end_time = time.time()
-
-    print(end_time-start_time)
